@@ -1,0 +1,112 @@
+.app-drawer .MuiDrawer-paper {
+  background: #eceee9;
+  color: #303236;
+}
+
+.app-drawer .brand-mark {
+  border-color: #b7a395;
+  color: #a45f4b;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+}
+
+.app-drawer .brand-name span {
+  color: #a45f4b;
+}
+
+.app-drawer .brand-caption,
+.app-drawer .workspace-label {
+  color: #777a73;
+}
+
+.app-drawer .workspace-button {
+  display: flex !important;
+  align-items: center !important;
+  gap: 11px !important;
+  min-height: 64px !important;
+  padding: 10px 12px !important;
+  background: #fffefd !important;
+  border-color: #d9ddd5 !important;
+  color: #303236 !important;
+  text-align: left !important;
+}
+
+.app-drawer .workspace-button .MuiButton-endIcon {
+  flex: 0 0 auto;
+  margin: 0 0 0 4px;
+  color: #8a8a83;
+}
+
+.app-drawer .workspace-button:hover,
+.app-drawer .side-nav-item.selected,
+.app-drawer .side-nav-item:hover,
+.app-drawer .user-profile:hover {
+  background: #f3eae5 !important;
+  color: #754537 !important;
+}
+
+.app-drawer .workspace-initials {
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border-radius: 7px;
+  background: #f2e5df;
+  color: #92513f;
+}
+
+.app-drawer .workspace-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: #303236;
+  font-size: 11px !important;
+  line-height: 1.3 !important;
+  text-align: left;
+  white-space: normal;
+}
+
+.app-drawer .workspace-name small {
+  margin-top: 4px;
+  color: #777a73;
+  font-size: 9px;
+  line-height: 1.35;
+  white-space: normal;
+}
+
+.app-drawer .side-nav-item,
+.app-drawer .side-nav-item .MuiButton-startIcon {
+  color: #5f625e !important;
+}
+
+.app-drawer .side-nav-item {
+  border-radius: 6px;
+}
+
+.app-drawer .side-nav-item.selected .MuiButton-startIcon,
+.app-drawer .side-nav-count,
+.app-drawer .profile-menu {
+  color: #a45f4b !important;
+}
+
+.app-drawer .user-profile {
+  border-top-color: #d9ddd5 !important;
+  color: #303236 !important;
+}
+
+.app-drawer .user-avatar {
+  background: #eadbd1;
+  color: #754537;
+}
+
+.app-drawer .market-open-note {
+  color: #555a54;
+}
+
+.app-drawer .market-open-note span:last-child {
+  color: #777a73;
+}
+
+.app-drawer .MuiDivider-root {
+  border-color: #d9ddd5 !important;
+}

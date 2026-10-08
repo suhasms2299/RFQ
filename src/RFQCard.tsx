@@ -1,13 +1,28 @@
 import React from 'react';
 import { ArrowOutward, Business, Schedule } from '@mui/icons-material';
-import { Box, Card, CardActionArea, Stack, Typography } from '@mui/material';
+import { Box, Card, CardActionArea, Chip, Stack, Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { Rfq, UserRole } from '../../types/index';
-import RFQStatusChip from './RFQStatusChip';
-import ValidityCountdown from './ValidityCountdown';
+import { Rfq, UserRole } from './types';
+
+const statusColor: Record<Rfq['status'], 'success' | 'warning' | 'info' | 'primary' | 'default' | 'error'> = {
+  Open: 'success',
+  'Pending Broker Approval': 'warning',
+  Quoted: 'info',
+  Executed: 'primary',
+  Expired: 'default',
+  Draft: 'default',
+};
 
 function formatDate(value: string) {
   return new Date(`${value.slice(0, 10)}T12:00:00`).toLocaleDateString(undefined, { month: 'short', day: 'numeric' });
+}
+
+function ValidityCountdown({ value }: { value: string }) {
+  const remaining = new Date(value).getTime() - Date.now();
+  if (remaining <= 0) return <span>Expired</span>;
+  const hours = Math.floor(remaining / 3600000);
+  if (hours >= 24) return <span>{Math.floor(hours / 24)}d {hours % 24}h left</span>;
+  return <span>{hours}h {Math.floor((remaining % 3600000) / 60000)}m left</span>;
 }
 
 type RFQCardProps = { rfq: Rfq; role: UserRole };
@@ -19,7 +34,7 @@ export default function RFQCard({ rfq, role }: RFQCardProps) {
       <CardActionArea component={Link} to={`/${role}/rfq/${rfq.id}`} sx={{ height: '100%', p: 2, display: 'block', textAlign: 'left' }}>
         <Stack direction="row" justifyContent="space-between" alignItems="flex-start" spacing={1}>
           <Box><Typography variant="overline" color="text.secondary">{rfq.id}</Typography><Typography variant="h6" sx={{ fontSize: 18 }}>{rfq.commodity}</Typography></Box>
-          <RFQStatusChip status={rfq.status} />
+          <Chip size="small" label={rfq.status} color={statusColor[rfq.status]} variant="outlined" />
         </Stack>
         <Stack direction="row" spacing={2.5} sx={{ mt: 2, flexWrap: 'wrap', rowGap: 1 }}>
           <Box><Typography variant="caption" color="text.secondary">VOLUME</Typography><Typography variant="body2" fontWeight={700}>{rfq.quantity.toLocaleString()} {rfq.unit === 'Liter' ? 'L' : 'MT'}</Typography></Box>

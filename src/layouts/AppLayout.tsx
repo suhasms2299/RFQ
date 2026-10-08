@@ -3,7 +3,7 @@ import { Building2, ChartNoAxesCombined, ChevronRight, ClipboardList, LayoutDash
 import { AppBar, Box, Button, Divider, Drawer, IconButton, Stack, ToggleButton, ToggleButtonGroup, Toolbar, Tooltip, Typography } from '@mui/material';
 import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 import ProfileDialog from '../components/ProfileDialog';
-import { UserRole } from '../types';
+import { UserRole } from '../types/index';
 
 const drawerWidth = 244;
 

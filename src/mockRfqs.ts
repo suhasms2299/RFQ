@@ -1,6 +1,4 @@
-import { Rfq } from '../types/index';
-
-const hoursFromNow = (hours: number) => new Date(Date.now() + hours * 60 * 60 * 1000).toISOString().slice(0, 16);
+import { Rfq } from './types';
 
 export const traderAccounts = [
   'North Harbor Trading',
@@ -23,27 +21,27 @@ export const counterparties = [
 export const mockRfqs: Rfq[] = [
   {
     id: 'RFQ-1048', commodity: 'Wheat', traderAccount: 'North Harbor Trading', status: 'Quoted',
-    startDate: '2026-10-18', endDate: '2026-10-28', validUntil: hoursFromNow(72),
+    startDate: '2026-10-18', endDate: '2026-10-28', validUntil: '2026-10-08T16:00',
     price: 286, unit: 'Metric Ton', quantity: 12000,
     description: 'Milling wheat, min. 12.5% protein. CIF Rotterdam, discharge in 48 hours.',
     counterparties: ['AgriGlobal BV', 'Cargill International', 'Louis Dreyfus Company'], createdAt: '2026-10-06',
     quotes: [
-      { id: 'Q-501', counterparty: 'AgriGlobal BV', price: 281, currency: 'USD', submittedAt: '2026-10-06T08:42', expiresAt: hoursFromNow(48), status: 'Submitted', notes: 'CIF Rotterdam. Freight included.' },
-      { id: 'Q-502', counterparty: 'Cargill International', price: 284, currency: 'USD', submittedAt: '2026-10-06T09:15', expiresAt: hoursFromNow(48), status: 'Submitted', notes: 'Subject to final vessel nomination.' },
-      { id: 'Q-503', counterparty: 'Louis Dreyfus Company', price: 279, currency: 'USD', submittedAt: '2026-10-06T09:33', expiresAt: hoursFromNow(48), status: 'Submitted', notes: 'Offer valid for 24 hours.' },
+      { id: 'Q-501', counterparty: 'AgriGlobal BV', price: 281, currency: 'USD', submittedAt: '2026-10-06T08:42', expiresAt: '2026-10-08T16:00', status: 'Submitted', notes: 'CIF Rotterdam. Freight included.' },
+      { id: 'Q-502', counterparty: 'Cargill International', price: 284, currency: 'USD', submittedAt: '2026-10-06T09:15', expiresAt: '2026-10-08T16:00', status: 'Submitted', notes: 'Subject to final vessel nomination.' },
+      { id: 'Q-503', counterparty: 'Louis Dreyfus Company', price: 279, currency: 'USD', submittedAt: '2026-10-06T09:33', expiresAt: '2026-10-08T16:00', status: 'Submitted', notes: 'Offer valid for 24 hours.' },
     ],
   },
   {
     id: 'RFQ-1047', commodity: 'Crude Oil', traderAccount: 'Atlas Energy Partners', status: 'Pending Broker Approval',
-    startDate: '2026-11-01', endDate: '2026-11-15', validUntil: hoursFromNow(72),
+    startDate: '2026-11-01', endDate: '2026-11-15', validUntil: '2026-10-09T12:00',
     price: 78.5, unit: 'Liter', quantity: 850000,
     description: 'Light sweet crude, max 0.5% sulfur. FOB loading terminal.',
     counterparties: ['Vitol Group', 'Trafigura'], createdAt: '2026-10-05',
-    quotes: [{ id: 'Q-498', counterparty: 'Vitol Group', price: 77.9, currency: 'USD', submittedAt: '2026-10-06T07:20', expiresAt: hoursFromNow(72), status: 'Submitted', notes: 'FOB. Laycan to be confirmed.' }],
+    quotes: [{ id: 'Q-498', counterparty: 'Vitol Group', price: 77.9, currency: 'USD', submittedAt: '2026-10-06T07:20', expiresAt: '2026-10-09T12:00', status: 'Submitted', notes: 'FOB. Laycan to be confirmed.' }],
   },
   {
     id: 'RFQ-1046', commodity: 'Gold', traderAccount: 'Meridian Agri Group', status: 'Open',
-    startDate: '2026-10-22', endDate: '2026-10-30', validUntil: hoursFromNow(96),
+    startDate: '2026-10-22', endDate: '2026-10-30', validUntil: '2026-10-11T17:00',
     price: 76600, unit: 'Metric Ton', quantity: 250,
     description: '99.99% purity, LBMA good delivery bars. Insured delivery to Zurich.',
     counterparties: ['Trafigura', 'Vitol Group', 'Cargill International'], createdAt: '2026-10-04', quotes: [],
@@ -58,7 +56,7 @@ export const mockRfqs: Rfq[] = [
   },
   {
     id: 'RFQ-1044', commodity: 'Palm Oil', traderAccount: 'Cedar Commodities', status: 'Draft',
-    startDate: '2026-11-12', endDate: '2026-11-20', validUntil: hoursFromNow(168),
+    startDate: '2026-11-12', endDate: '2026-11-20', validUntil: '2026-10-15T12:00',
     price: 1030, unit: 'Metric Ton', quantity: 1800,
     description: 'RSPO-certified, sustainable supply chain documentation required.',
     counterparties: ['Bunge Limited', 'Cargill International'], createdAt: '2026-10-03', quotes: [],

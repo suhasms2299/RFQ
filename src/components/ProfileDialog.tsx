@@ -2,7 +2,7 @@ import React from 'react';
 import { AccountCircle, BadgeOutlined, BusinessOutlined, MailOutline, ShieldOutlined } from '@mui/icons-material';
 import { Avatar, Box, Chip, Dialog, DialogContent, DialogTitle, Divider, IconButton, Stack, Typography } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
-import { UserRole } from '../types';
+import { UserRole } from '../types/index';
 
 type ProfileDialogProps = {
   open: boolean;

@@ -1,13 +1,13 @@
 import React, { createContext, useContext, useMemo, useState } from 'react';
-import { mockRfqs } from '../data/mockRfqs';
-import { Quote, QuoteResponse, Rfq, RfqFormValues, UserRole } from '../types/index';
+import { mockRfqs } from './mockRfqs';
+import { Quote, Rfq, RfqFormValues, UserRole } from './types';
 
-type QuoteAction = 'accept' | 'decline' | 'respond';
+type QuoteAction = 'accept' | 'decline' | 'counter';
 
 type RfqContextValue = {
   rfqs: Rfq[];
   createRfq: (values: RfqFormValues, role: UserRole) => Rfq;
-  updateQuote: (rfqId: string, quoteId: string, action: QuoteAction, response?: QuoteResponse) => void;
+  updateQuote: (rfqId: string, quoteId: string, action: QuoteAction, counterPrice?: number) => void;
   submitDraft: (rfqId: string) => void;
 };
 
@@ -41,15 +41,14 @@ export function RfqProvider({ children }: { children: React.ReactNode }) {
       setRfqs((current) => [rfq, ...current]);
       return rfq;
     },
-    updateQuote: (rfqId, quoteId, action, response) => {
+    updateQuote: (rfqId, quoteId, action, counterPrice) => {
       setRfqs((current) => current.map((rfq) => {
         if (rfq.id !== rfqId) return rfq;
         const quotes: Quote[] = rfq.quotes.map((quote) => {
           if (quote.id !== quoteId) return action === 'accept' && quote.status === 'Submitted' ? { ...quote, status: 'Declined' } : quote;
           if (action === 'accept') return { ...quote, status: 'Accepted' };
           if (action === 'decline') return { ...quote, status: 'Declined' };
-          if (!response) return quote;
-          return { ...quote, status: 'Responded', response };
+          return { ...quote, status: 'Countered', price: counterPrice ?? quote.price };
         });
         return { ...rfq, quotes, status: action === 'accept' ? 'Executed' : rfq.status };
       }));

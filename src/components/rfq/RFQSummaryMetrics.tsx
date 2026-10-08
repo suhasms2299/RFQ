@@ -1,7 +1,7 @@
 import React from 'react';
 import { Schedule } from '@mui/icons-material';
 import { Grid, Paper, Typography } from '@mui/material';
-import { Rfq } from '../../types';
+import { Rfq } from '../../types/index';
 import ValidityCountdown from './ValidityCountdown';
 
 export default function RFQSummaryMetrics({ rfq }: { rfq: Rfq }) {

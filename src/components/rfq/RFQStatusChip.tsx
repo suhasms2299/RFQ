@@ -1,6 +1,6 @@
 import React from 'react';
 import { Chip } from '@mui/material';
-import { RfqStatus } from '../../types';
+import { RfqStatus } from '../../types/index';
 
 const statusColor: Record<RfqStatus, 'success' | 'warning' | 'info' | 'primary' | 'default' | 'error'> = {
   Open: 'success',

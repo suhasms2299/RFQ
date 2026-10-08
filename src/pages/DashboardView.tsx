@@ -7,7 +7,7 @@ import ProcurementChart from '../components/charts/ProcurementChart';
 import RfqStatusChart from '../components/charts/RfqStatusChart';
 import RFQCard from '../components/rfq/RFQCard';
 import RFQForm from '../components/forms/RFQForm';
-import { Rfq, UserRole } from '../types';
+import { Rfq, UserRole } from '../types/index';
 
 const dashboardTabs = ['Active RFQs', 'Pending Quotes', 'Completed Trades', 'Drafts'];
 const statusOptions = ['All statuses', 'Open', 'Pending Broker Approval', 'Quoted', 'Executed', 'Expired', 'Draft'];

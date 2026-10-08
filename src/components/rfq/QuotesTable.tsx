@@ -1,7 +1,7 @@
 import React from 'react';
 import { CheckCircleOutline, TrendingDown } from '@mui/icons-material';
 import { Box, Button, Chip, Stack, Table, TableBody, TableCell, TableHead, TableRow, Typography } from '@mui/material';
-import { Quote, QuoteResponse, RfqStatus } from '../../types';
+import { Quote, QuoteResponse, RfqStatus } from '../../types/index';
 import ValidityCountdown from './ValidityCountdown';
 
 type QuotesTableProps = {

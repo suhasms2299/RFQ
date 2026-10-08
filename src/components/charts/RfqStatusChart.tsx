@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Stack, Typography } from '@mui/material';
 import { Cell, Pie, PieChart, ResponsiveContainer, Tooltip } from 'recharts';
-import { Rfq, RfqStatus } from '../../types';
+import { Rfq, RfqStatus } from '../../types/index';
 
 const statusColors: Record<RfqStatus, string> = {
   Open: '#4b7c52',

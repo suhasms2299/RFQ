@@ -7,7 +7,7 @@ import QuotesTable from '../components/rfq/QuotesTable';
 import RFQStatusChip from '../components/rfq/RFQStatusChip';
 import RFQSummaryMetrics from '../components/rfq/RFQSummaryMetrics';
 import { useRfqs } from '../hooks/useRfqs';
-import { Quote, UserRole } from '../types';
+import { Quote, UserRole } from '../types/index';
 
 function dateLabel(value: string) {
   return new Date(`${value.slice(0, 10)}T12:00:00`).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' });

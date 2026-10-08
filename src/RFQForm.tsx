@@ -4,13 +4,13 @@ import { Autocomplete, Button, Dialog, DialogActions, DialogContent, DialogTitle
 import { Controller, useForm, useWatch } from 'react-hook-form';
 import { z } from 'zod';
 import { useNavigate } from 'react-router-dom';
-import { useRfqs } from '../../hooks/useRfqs';
-import { counterparties, traderAccounts } from '../../data/mockRfqs';
-import { RfqFormValues, UserRole } from '../../types/index';
+import { useRfqs } from './RfqContext';
+import { counterparties, traderAccounts } from './mockRfqs';
+import { RfqFormValues, UserRole } from './types';
 
 const commodities = ['Crude Oil', 'Wheat', 'Gold', 'LNG', 'Palm Oil'];
 
-export const rfqSchema = z.object({
+const rfqSchema = z.object({
   traderAccount: z.string(),
   commodity: z.string().min(1, 'Choose a commodity'),
   startDate: z.string().min(1, 'Choose a start date'),
@@ -70,7 +70,7 @@ export default function RFQForm({ open, role, onClose }: RFQFormProps) {
 
   return (
     <Dialog open={open} onClose={close} fullWidth maxWidth="md" aria-labelledby="rfq-form-title">
-      <DialogTitle id="rfq-form-title" sx={{ pb: 0.5, fontFamily: "'IBM Plex Sans', 'Segoe UI', sans-serif", fontSize: 24, fontWeight: 600 }}>Create a request for quote</DialogTitle>
+      <DialogTitle id="rfq-form-title" sx={{ pb: 0.5, fontFamily: 'Georgia, serif', fontSize: 26 }}>Create a request for quote</DialogTitle>
       <DialogContent>
         <Typography color="text.secondary" variant="body2" sx={{ mb: 2.5 }}>Set your commercial terms and invite counterparties to bid.</Typography>
         <Stack component="form" id="rfq-create-form" onSubmit={handleSubmit(submit)} spacing={2}>
